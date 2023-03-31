@@ -1,8 +1,7 @@
 #!/bin/bash
 
 input_file="bash_scripting_q6.csv"
-rm "formatted.csv"
-rm "warnings.log"
+
 output_file="formatted.csv"
 warning_file="warnings.log"
 
@@ -52,4 +51,5 @@ echo "Rows successfully formatted and written to output file: $formatted_rows"
 echo "Rows skipped due to invalid phone numbers: $skipped_rows"
 echo "Top 10 most common email domains:"
 awk -F "@" '{print $NF}' "$output_file" | sort | uniq -c | sort -rn | head -10 | awk '{print $2" "$1}'
-
+rm "formatted.csv"
+rm "warnings.log"
